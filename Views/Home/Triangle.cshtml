@@ -23,6 +23,7 @@
 
         @{
             var colorOptions = new[] {
+
                 new SelectListItem { Text = "", Value = "" },
                 new SelectListItem { Text = "Red", Value = "#F1472E" },
                 new SelectListItem { Text = "Orange", Value = "#ff8000" },
@@ -49,8 +50,8 @@
 
         @foreach (var prop in new[] {
             new { Name = nameof(Model.StrokeWidth), Label = "Stroke Width" },
-            new { Name = nameof(Model.X), Label = "X" },
-            new { Name = nameof(Model.Y), Label = "Y" },
+            new { Name = nameof(Model.X), Label = "X coordinate" },
+            new { Name = nameof(Model.Y), Label = "Y coordinate" },
             new { Name = nameof(Model.BaseLength), Label = "Base" },
             new { Name = nameof(Model.Height), Label = "Height" }
         })

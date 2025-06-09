@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "ShapeSellection";
+}
+
+<h2>Choose the type of shape to display</h2>
+<div >
+    <input type="radio" name="shape" id="square" value="square" checked>
+    <label for="circle">
+        Square
+    </label>
+</div>
+<div>
+    <input  type="radio" name="shape" id="rectangle" value="rectangle">
+    <label  for="rectangle">
+        Rectangle
+    </label>
+</div>
+<div>
+    <input type="radio" name="shape" id="ellipse" value="ellipse">
+    <label for="ellipse">
+        Ellipse
+    </label>
+</div>
+<div>
+    <input type="radio" name="shape" id="triangle" value="triangle">
+    <label for="triangle">
+        Triangle
+    </label>
+</div>
+<button onclick="submit()">Submit</button>
+
+@section Scripts{
+    <script>
+    function submit() {
+        const selected = document.querySelector('input[name="shape"]:checked');
+        window.location = `/Home/${selected.value}`;
+    }
+    </script>
+}

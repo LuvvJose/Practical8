@@ -1,0 +1,83 @@
+﻿@model Practical8.Models.Rectangle
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Add a Rectangle</h2>
+
+@using (Html.BeginForm("AddRectangle", "home", FormMethod.Post))
+{
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group row my-2">
+            @Html.LabelFor(m => m.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row my-2">
+            @Html.Label("FillColour", "Fill", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="FillColour" class="form-select">
+                    <option value=""></option>
+                    <option value="#F1472E"> Red</option>
+                    <option value="#ff8000"> Orange</option>
+                    <option value="#ffff00"> Yellow</option>
+                    <option value="#40ff00"> Green</option>
+                </select>
+                @Html.ValidationMessageFor(m => m.Fill, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row my-2">
+            @Html.Label("StrokeColour", "Stroke Colour", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="StrokeColour" class="form-select">
+                    <option value=""></option>
+                    <option value="#F1472E">Red</option>
+                    <option value="#ff8000">Orange</option>
+                    <option value="#ffff00">Yellow</option>
+                    <option value="#40ff00">Green</option>
+                </select>
+                @Html.ValidationMessageFor(m => m.StrokeColour, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @foreach (var field in new[] {
+            new { Label = "StrokeWidth", Prop = nameof(Model.StrokeWidth) },
+            new { Label = "X", Prop = nameof(Model.X) },
+            new { Label = "Y", Prop = nameof(Model.Y) },
+            new { Label = "Height of Rectangle", Prop = nameof(Model.Height) },
+            new { Label = "Length of Rectangle", Prop = nameof(Model.Width) }
+        })
+        {
+            <div class="form-group row my-2">
+                <label class="control-label col-md-2">@field.Label</label>
+                <div class="col-md-10">
+                    @Html.Editor(field.Prop, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessage(field.Prop, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        <div class="form-group row">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

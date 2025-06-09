@@ -186,6 +186,7 @@
     <Content Include="Views\Home\Rectangle.cshtml" />
     <Content Include="Views\Home\Triangle.cshtml" />
     <Content Include="Views\Home\Ellipse.cshtml" />
+    <Content Include="Views\Home\Display.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

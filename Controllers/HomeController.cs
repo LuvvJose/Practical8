@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practical8.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -47,5 +48,33 @@ namespace Practical8.Controllers
         {
             return View();
         }
+
+
+        public ActionResult AddRectangle(Rectangle r)
+        {
+            shapes.Add(r);
+            return RedirectToAction("Display");
+        }
+
+        public ActionResult AddEllipse(Ellipse e)
+        {
+            shapes.Add(e);
+            return RedirectToAction("Display");
+        }
+
+        public ActionResult AddTriangle(Triangle t)
+        {
+            shapes.Add(t);
+            return RedirectToAction("Display");
+        }
+
+
+
+        public static List<Shape> shapes = new List<Shape>();
+        public ActionResult Display()
+        {
+            return View(shapes);
+        }
+
     }
 }

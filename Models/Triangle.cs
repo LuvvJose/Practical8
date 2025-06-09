@@ -1,8 +1,4 @@
-﻿using Practical8.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 
 namespace Practical8.Models
 {
@@ -25,25 +21,14 @@ namespace Practical8.Models
             Height = height;
         }
 
-        public override double getArea()
-        {
-            return 0.5 * BaseLength * Height;
-        }
+        public override double getArea() => 0.5 * BaseLength * Height;
 
         public override string getSVG()
         {
-            int x1 = X;
-            int y1 = Y;
-            int x2 = X + BaseLength;
-            int y2 = Y;
-            int x3 = X + (BaseLength / 2);
-            int y3 = Y - Height;
-
+            var points = $"{X},{Y} {X + BaseLength},{Y} {X + BaseLength / 2},{Y - Height}";
             return $"<svg width='{SvgWidth}' height='{SvgHeight}'>" +
-                   $"<polygon points='{x1},{y1} {x2},{y2} {x3},{y3}' " +
-                   $"fill='{Fill}' stroke='{StrokeColour}' stroke-width='{StrokeWidth}' />" +
+                   $"<polygon points='{points}' fill='{Fill}' stroke='{StrokeColour}' stroke-width='{StrokeWidth}' />" +
                    $"</svg>";
         }
     }
-
 }

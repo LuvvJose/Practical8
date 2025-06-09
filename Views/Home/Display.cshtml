@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Practical8.Models.Shape>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2 class="text-bg-primary p-4">Shapes Display</h2>
+<div>
+    <a class="btn btn-primary" href="/Home/ShapeSellection">Add Shape</a>
+
+</div>
+@foreach (var item in Model)
+{
+    <div>
+        <p>
+            @Html.DisplayFor(modelItem => item.Description)
+        </p>
+        <p>
+            Area: @item.getArea()
+        </p>
+        <svg style="border: dotted 2px black" width="450" height="450" xmlns="http://www.w3.org/2000/svg">
+            @Html.Raw(item.getSVG())
+        </svg>
+
+    </div>
+}
+
+

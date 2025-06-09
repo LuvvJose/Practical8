@@ -1,8 +1,4 @@
-﻿using Practical8.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 
 namespace Practical8.Models
 {
@@ -10,8 +6,8 @@ namespace Practical8.Models
     {
         public int Cx { get; set; }
         public int Cy { get; set; }
-        public int Rx { get; set; }  
-        public int Ry { get; set; }  
+        public int Rx { get; set; }
+        public int Ry { get; set; }
 
         public Ellipse() { }
 
@@ -25,18 +21,12 @@ namespace Practical8.Models
             Ry = ry;
         }
 
-        public override double getArea()
-        {
-            return Math.PI * Rx * Ry;
-        }
+        public override double getArea() => Math.PI * Rx * Ry;
 
-        public override string getSVG()
-        {
-            return $"<svg width='{SvgWidth}' height='{SvgHeight}'>" +
-                   $"<ellipse cx='{Cx}' cy='{Cy}' rx='{Rx}' ry='{Ry}' " +
-                   $"fill='{Fill}' stroke='{StrokeColour}' stroke-width='{StrokeWidth}' />" +
-                   $"</svg>";
-        }
+        public override string getSVG() =>
+            $"<svg width='{SvgWidth}' height='{SvgHeight}'>" +
+            $"<ellipse cx='{Cx}' cy='{Cy}' rx='{Rx}' ry='{Ry}' " +
+            $"fill='{Fill}' stroke='{StrokeColour}' stroke-width='{StrokeWidth}' />" +
+            $"</svg>";
     }
-
 }
